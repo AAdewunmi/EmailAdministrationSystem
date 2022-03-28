@@ -1,5 +1,6 @@
 package com.emailadministrationsystem.email;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -87,6 +88,26 @@ public class Email {
     }
 
     /**
+     * This method is used to generate a random string password
+     * @return: the password
+     */
+
+    public String generatePassword(){
+        Random random = new Random();
+        String Capital_Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String Small_Chars = "abcdefghijklmnopqrstuvwxyz";
+        String numbers = "0123456789";
+        String symbols = "!@#$%^&*_=+-/.?<>)";
+        String values = Capital_Chars + Small_Chars + numbers + symbols;
+        String password = "";
+        for (int i = 0; i < 10; i++) {
+            this.password += password + values.charAt(random.nextInt(values.length()));
+        }
+        return this.password;
+    }
+
+
+    /**
      * toString method for the Email class
      * @return: the email information
      */
@@ -100,11 +121,12 @@ public class Email {
                 ", Email: " + email + "\n";
     }
 
-    /*Email Test Class
+    // Email Test Class
     public static void main(String[] args) {
         Email email = new Email();
         email.setDepartment();
         email.createEmail();
         System.out.println(email);
-    }*/
+        System.out.println("Password: " + email.generatePassword());
+    }
 }
