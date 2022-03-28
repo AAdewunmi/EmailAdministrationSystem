@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class Email {
 
-    public Scanner scanner = new Scanner(System.in);
     private String firstName;
     private String lastName;
     private String department;
@@ -34,7 +33,8 @@ public class Email {
      * @return: the department
      */
 
-    public String setDepartment() {
+    private String setDepartment() {
+        Scanner scannerSetDepartment = new Scanner(System.in);
         System.out.println("Email Creation Process: \n");
         int departmentChoice;
         do {
@@ -45,7 +45,7 @@ public class Email {
                     + "\n4. Human Resources"
                     + "\n5. Customer Service & Support"
                     + "\n6. Operations & Management");
-            departmentChoice = scanner.nextInt();
+            departmentChoice = scannerSetDepartment.nextInt();
             switch (departmentChoice) {
                 case 1:
                     this.department = "Sales & Marketing";
@@ -78,12 +78,14 @@ public class Email {
      * @return: the email address
      */
 
-    public String createEmail() {
+    private String createEmail() {
+        Scanner scannerCreateEmail = new Scanner(System.in);
         System.out.println("\nEnter your first name: ");
-        this.firstName = scanner.next();
+        this.firstName = scannerCreateEmail.next();
         System.out.println("Enter your last name: ");
-        this.lastName = scanner.next();
+        this.lastName = scannerCreateEmail.next();
         this.email = this.firstName.toLowerCase() + "." + this.lastName.toLowerCase() + "@" + this.department.toUpperCase() + ".company.com";
+        //System.out.println("Email: " + this.email);
         return this.email;
     }
 
@@ -92,7 +94,7 @@ public class Email {
      * @return: the password
      */
 
-    public String generatePassword(){
+    private String generatePassword(){
         Random random = new Random();
         String Capital_Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String Small_Chars = "abcdefghijklmnopqrstuvwxyz";
@@ -103,7 +105,43 @@ public class Email {
         for (int i = 0; i < 10; i++) {
             this.password += password + values.charAt(random.nextInt(values.length()));
         }
+        //System.out.println("Password: " + this.password);
         return this.password;
+    }
+
+    /**
+     * This method is used to change the randomly generated password
+     * @return: the alternate password
+     */
+
+    private void changePassword(){
+        Scanner scannerChangePassword = new Scanner(System.in);
+        boolean isValid = false;
+        do {
+            System.out.println("\nDo you want to change your password? (Y / N)");
+            char choice = scannerChangePassword.next().charAt(0);
+            if (choice == 'Y' || choice == 'y') {
+                    isValid = true;
+                    System.out.println("Enter current password: ");
+                    scannerChangePassword.nextLine();
+                    String currentPassword = scannerChangePassword.nextLine();
+                    scannerChangePassword.nextLine();
+                    if (currentPassword.equals(this.password)) {
+                        System.out.println("Enter new password: ");
+                        scannerChangePassword.nextLine();
+                        this.password = scannerChangePassword.nextLine();
+                        System.out.println("Password successfully changed!");
+                    }else {
+                        System.out.println("Invalid password");
+                        // Do you want to try again?
+                    }
+            }else if (choice == 'N' || choice == 'n') {
+                    isValid = true;
+                    System.out.println("Password not changed!");
+            }else {
+                System.out.println("Invalid input");
+            }
+        }while (!isValid);
     }
 
 
@@ -121,12 +159,12 @@ public class Email {
                 ", Email: " + email + "\n";
     }
 
-    // Email Test Class
+    /*// Email Test Class
     public static void main(String[] args) {
         Email email = new Email();
         email.setDepartment();
         email.createEmail();
-        System.out.println(email);
-        System.out.println("Password: " + email.generatePassword());
-    }
+        email.generatePassword();
+        email.changePassword();
+    }*/
 }
