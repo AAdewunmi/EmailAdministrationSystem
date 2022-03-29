@@ -16,7 +16,7 @@ public class Email {
     private String department;
     private String email;
     private String password;
-    private final int mailCapacity = 500;
+    private int mailCapacity = 500;
     private String alter_email;
 
     /**
@@ -143,6 +143,20 @@ public class Email {
             }
         }while (!isValid);
     }
+
+    /**
+     * This method is used to set mailbox capacity
+     * @return
+     */
+
+    private void setMailboxCapacity() {
+        System.out.println("Current mailbox capacity: " + this.mailCapacity + " MB");
+        Scanner scannerSetMailboxCapacity = new Scanner(System.in);
+        System.out.println("\nEnter new mailbox capacity: ");
+        this.mailCapacity = scannerSetMailboxCapacity.nextInt();
+        System.out.println("Mailbox capacity successfully changed!");
+    }
+
 
 
     /**
