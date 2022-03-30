@@ -85,7 +85,7 @@ public class Email {
         System.out.println("Enter your last name: ");
         this.lastName = scannerCreateEmail.next();
         this.email = this.firstName.toLowerCase() + "." + this.lastName.toLowerCase() + "@" + this.department.toUpperCase() + ".company.com";
-        //System.out.println("Email: " + this.email);
+        System.out.println("Email: " + this.email);
         return this.email;
     }
 
@@ -105,7 +105,7 @@ public class Email {
         for (int i = 0; i < 10; i++) {
             this.password += password + values.charAt(random.nextInt(values.length()));
         }
-        //System.out.println("Password: " + this.password);
+        System.out.println("Password: " + this.password);
         return this.password;
     }
 
@@ -130,6 +130,7 @@ public class Email {
                         System.out.println("Enter new password: ");
                         scannerChangePassword.nextLine();
                         this.password = scannerChangePassword.nextLine();
+                        // Print the new password
                         System.out.println("Password successfully changed!");
                     }else {
                         System.out.println("Invalid password");
@@ -153,7 +154,7 @@ public class Email {
         Scanner scannerSetMailboxCapacity = new Scanner(System.in);
         System.out.println("\nEnter new mailbox capacity: ");
         this.mailCapacity = scannerSetMailboxCapacity.nextInt();
-        System.out.println("Mailbox capacity successfully changed!");
+        System.out.println("Mailbox capacity successfully changed!" + "\nNew mailbox capacity: " + this.mailCapacity + " MB");
     }
 
     /**
@@ -164,10 +165,8 @@ public class Email {
         Scanner scannerSetAlternativeEmail = new Scanner(System.in);
         System.out.println("\nEnter alternative email address: ");
         this.alter_email = scannerSetAlternativeEmail.next();
-        System.out.println("Alternative email address successfully changed!");
+        System.out.println("Alternative email address successfully changed!" + "\nAlternative email address: " + this.alter_email);
     }
-
-
 
     /**
      * toString method for the Email class
@@ -180,11 +179,14 @@ public class Email {
                 "First Name: " + firstName + "\n" +
                 ", LastName: " + lastName + "\n" +
                 ", Department: " + department + "\n" +
-                ", Email: " + email + "\n";
+                ", Email: " + email + "\n"
+                + ", Password: " + password + "\n"
+                + ", Mailbox Capacity: " + mailCapacity + " MB" + "\n"
+                + ", Alternative Email: " + alter_email + "\n";
     }
 
-    /*// Email Test Class
-    public static void main(String[] args) {
+    //Email Test Class
+    /*public static void main(String[] args) {
         Email email = new Email();
         email.setDepartment();
         email.createEmail();
