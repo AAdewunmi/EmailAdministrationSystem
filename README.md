@@ -1,10 +1,10 @@
-# Project: Email Administration System
+# Email Administration System
 
 ## 1. What is the project?
 
-Email Administration System
+A Console-Based Email Administration System, built using Java 8.
 
-Its purpose is to add, amend and remove email addresses of users.
+Its purpose is manage user email addresses and password.
 
 ## 2. What is the MVP (Minimal Viable Product)?
 
@@ -14,7 +14,8 @@ User can:
 2. Generate a random password, 
 3. Change a random password to a user defined password, 
 4. Set email box memory capacity,
-5. Set an alternative email address for users.
+5. Set an alternative email address for users,
+6. Remove an email address.
 
 ## 3. What are the nice to haves?
 
