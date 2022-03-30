@@ -146,7 +146,6 @@ public class Email {
 
     /**
      * This method is used to set mailbox capacity
-     * @return
      */
 
     private void setMailboxCapacity() {
@@ -155,6 +154,17 @@ public class Email {
         System.out.println("\nEnter new mailbox capacity: ");
         this.mailCapacity = scannerSetMailboxCapacity.nextInt();
         System.out.println("Mailbox capacity successfully changed!");
+    }
+
+    /**
+     * This method is used to set alternative email address
+     */
+
+    private void setAlternativeEmail() {
+        Scanner scannerSetAlternativeEmail = new Scanner(System.in);
+        System.out.println("\nEnter alternative email address: ");
+        this.alter_email = scannerSetAlternativeEmail.next();
+        System.out.println("Alternative email address successfully changed!");
     }
 
 
