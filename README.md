@@ -2,7 +2,7 @@
 
 ## 1. What is the project?
 
-A Console-Based Email Administration System, built using Java 8.
+A Console-Based, Menu Driven Email Administration System, built using Java 8.
 
 Its purpose is manage user email addresses and password.
 
