@@ -23,10 +23,7 @@ public class Email {
      * Constructor for the Email class
      */
 
-    public Email() {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+    public Email() {}
 
     /**
      * This method is used to select a department for the user
@@ -35,7 +32,6 @@ public class Email {
 
     private String setDepartment() {
         Scanner scannerSetDepartment = new Scanner(System.in);
-        System.out.println("Email Creation Process: \n");
         int departmentChoice;
         do {
             System.out.println("Select a department: \n"
@@ -44,7 +40,8 @@ public class Email {
                     + "\n3. Accounting & Finance"
                     + "\n4. Human Resources"
                     + "\n5. Customer Service & Support"
-                    + "\n6. Operations & Management");
+                    + "\n6. Operations & Management\n"
+                    + "\nEnter a number: ");
             departmentChoice = scannerSetDepartment.nextInt();
             switch (departmentChoice) {
                 case 1:
@@ -85,7 +82,7 @@ public class Email {
         System.out.println("Enter your last name: ");
         this.lastName = scannerCreateEmail.next();
         this.email = this.firstName.toLowerCase() + "." + this.lastName.toLowerCase() + "@" + this.department.toUpperCase() + ".company.com";
-        System.out.println("Email: " + this.email);
+        System.out.println("\nEmail: " + this.email);
         return this.email;
     }
 
@@ -105,7 +102,7 @@ public class Email {
         for (int i = 0; i < 10; i++) {
             this.password += password + values.charAt(random.nextInt(values.length()));
         }
-        System.out.println("Password: " + this.password);
+        System.out.println("\nPassword: " + this.password);
         return this.password;
     }
 
@@ -116,33 +113,28 @@ public class Email {
 
     private void changePassword(){
         Scanner scannerChangePassword = new Scanner(System.in);
-        boolean isValid = false;
+        char a;
         do {
-            System.out.println("\nDo you want to change your password? (Y / N)");
-            char choice = scannerChangePassword.next().charAt(0);
-            if (choice == 'Y' || choice == 'y') {
-                    isValid = true;
-                    System.out.println("Enter current password: ");
-                    scannerChangePassword.nextLine();
-                    String currentPassword = scannerChangePassword.nextLine();
-                    scannerChangePassword.nextLine();
-                    if (currentPassword.equals(this.password)) {
-                        System.out.println("Enter new password: ");
-                        scannerChangePassword.nextLine();
-                        this.password = scannerChangePassword.nextLine();
-                        // Print the new password
-                        System.out.println("Password successfully changed!");
-                    }else {
-                        System.out.println("Invalid password");
-                        // Do you want to try again?
-                    }
-            }else if (choice == 'N' || choice == 'n') {
-                    isValid = true;
-                    System.out.println("Password not changed!");
-            }else {
-                System.out.println("Invalid input");
-            }
-        }while (!isValid);
+                System.out.println("Changing password ... " +
+                        "\nEnter current password: ");
+                String currentPassword = scannerChangePassword.nextLine();
+                scannerChangePassword.nextLine();
+                if (currentPassword.equals(this.password)) {
+                    System.out.println("Enter new password: ");
+                    this.password = scannerChangePassword.nextLine();
+                    System.out.println("New password: " + this.password);
+                    System.out.println("Password successfully changed!");
+                    return;
+                }else {
+                    System.out.println("Invalid password\n" +
+                            "Password not changed\n" +
+                            "Would you like to try again? (y / n)");
+                }
+                a = scannerChangePassword.next().charAt(0);
+                if (a != 'Y' || a != 'y') {
+                    System.out.println("\nPassword not changed!");
+                }
+        }while (a == 'Y' || a == 'y');
     }
 
     /**
@@ -168,6 +160,7 @@ public class Email {
         System.out.println("Alternative email address successfully changed!" + "\nAlternative email address: " + this.alter_email);
     }
 
+
     /**
      * toString method for the Email class
      * @return: the email information
@@ -185,12 +178,5 @@ public class Email {
                 + ", Alternative Email: " + alter_email + "\n";
     }
 
-    //Email Test Class
-    /*public static void main(String[] args) {
-        Email email = new Email();
-        email.setDepartment();
-        email.createEmail();
-        email.generatePassword();
-        email.changePassword();
-    }*/
+
 }
