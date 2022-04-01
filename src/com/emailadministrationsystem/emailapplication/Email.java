@@ -1,5 +1,6 @@
 package com.emailadministrationsystem.emailapplication;
 
+import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -160,6 +161,51 @@ public class Email {
         System.out.println("\nEnter alternative email address: ");
         this.alter_email = scannerSetAlternativeEmail.next();
         System.out.println("Alternative email address successfully changed!" + "\nAlternative email address: " + this.alter_email + "\n");
+    }
+
+    /**
+     * This method is used to store the user's information
+     * in a text file.
+     */
+
+    public void storeUserInfo() {
+        try {
+            FileWriter fileWriter = new FileWriter("user_info.txt", true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write("\nEmail User Info: " + "\n" +
+                    "First Name: " + firstName + "\n" +
+                    ", LastName: " + lastName + "\n" +
+                    ", Department: " + department + "\n" +
+                    ", Email: " + email + "\n"
+                    + ", Password: " + password + "\n"
+                    + ", Mailbox Capacity: " + mailCapacity + " MB" + "\n"
+                    + ", Alternative Email: " + alter_email + "\n");
+            System.out.println("\nUser information successfully stored!" + "\n");
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method is used to display the user's information
+     * in a text file.
+     */
+
+    public void displayUserInfo() {
+        try {
+            System.out.println("\nDisplaying user information ... ");
+            FileReader fileReader = new FileReader("user_info.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+            System.out.println("\nUser information successfully displayed!" + "\n");
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

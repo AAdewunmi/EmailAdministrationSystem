@@ -1,0 +1,10 @@
+
+
+Email User Info: 
+First Name: Elon
+, LastName: Musk
+, Department: IT & Networking
+, Email: elon.musk@IT & NETWORKING.company.com
+, Password: emailapplication:)
+, Mailbox Capacity: 1000 MB
+, Alternative Email: james.dyson@dyson.org

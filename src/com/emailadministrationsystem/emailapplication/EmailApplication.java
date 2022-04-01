@@ -22,7 +22,9 @@ public class EmailApplication {
                     "\n4. Set mailbox capacity" +
                     "\n5. Set alternative email address" +
                     "\n6. Print the email information" +
-                    "\n7. Exit" +  "\n");
+                    "\n7. Store email info in file" +
+                    "\n8. Retrieve email info from file" +
+                    "\n9. Exit" +  "\n");
             userChoice = scanner.nextInt();
             switch(userChoice){
                 case 1:
@@ -43,14 +45,21 @@ public class EmailApplication {
                     break;
                 case 6:
                     System.out.println(email);
+                    break;
                 case 7:
+                    email.storeUserInfo();
+                    break;
+                case 8:
+                    email.displayUserInfo();
+                    break;
+                case 9:
                     System.out.println("Exiting the application...");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
 
             }
-        }while(userChoice != 7);
+        }while(userChoice != 9);
     }
 
 
