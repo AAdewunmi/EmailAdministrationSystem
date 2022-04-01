@@ -1,4 +1,4 @@
-package com.emailadministrationsystem.email;
+package com.emailadministrationsystem.emailapplication;
 
 import java.util.Scanner;
 

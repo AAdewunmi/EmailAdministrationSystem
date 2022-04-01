@@ -1,4 +1,4 @@
-package com.emailadministrationsystem.email;
+package com.emailadministrationsystem.emailapplication;
 
 import java.util.Random;
 import java.util.Scanner;
