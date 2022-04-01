@@ -27,7 +27,7 @@ Enjoy 😎
 
 ## 3. Screenshots of Main Menu:
 
-![Image description](src/com/emailadministrationsystem/screenshot/screenshot.png)
+![Image description](src/screenshot.png)
 
 ## 4. Future Plans:
 
