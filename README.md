@@ -4,24 +4,28 @@
 
 A Console-Based, Menu Driven Email Administration System, built using Java 8.
 
-Its purpose is manage user email addresses and password.
+Its purpose is manage user email addresse and password.
 
-## 2. What is the MVP (Minimal Viable Product)?
+## 2. Installing:
 
-User can: 
+1. Clone the repo
 
-1. Create an email address, 
-2. Generate a random password, 
-3. Change a random password to a user defined password, 
-4. Set email box memory capacity,
-5. Set an alternative email address for users,
-6. Remove an email address.
+```
+https://github.com/AAdewunmi/EmailAdministrationSystem.git
+```
 
-## 3. What are the nice to haves?
+2. Open Project Folder
+
+
+3. Explore (or run) the project. Main class is `library/LibraryMain.java`.
+
+Enjoy 😎
+
+## 3. Screenshots of Main Menu:
+
+![Image description](src/com/emailadministrationsystem/screenshot/screenshot.png)
+
+## 4. Future Plans:
 
 1. User Interface (UI)
 2. Database to store email addresses and passwords
-
-## 4. When will the project be complete?
-
-The project will be complete when the MVP is complete.
